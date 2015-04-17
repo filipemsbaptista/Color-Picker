@@ -19,13 +19,18 @@ class testApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
 		ofFbo fbo;					//Buffer to draw color picker
+		float rectHeight;			//Height of the color shower
+		float margin;				//Margin between color shower and color picker
+
 		ofImage img;				//Image object for color picker
 		//float w;					//Color picker width 
 		//float h;					//Color picker height
 		//float cx, cy;				//Color picker center coordinates
+		//unsigned char *pixels;		//Color picker image pixels
+
 		bool visible;				//Is color picker visible
 
-		//unsigned char *pixels;		//Color picker image pixels
+		
 		ofColor color;	
 
 };

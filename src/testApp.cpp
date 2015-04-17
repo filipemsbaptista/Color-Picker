@@ -33,7 +33,11 @@ void testApp::setup(){
 	img.loadImage("color-picker.png");
 	//img.width = w;
 	//img.height = h;
-	fbo.allocate(ofGetWidth(), ofGetHeight(), GL_RGB32F_ARB);
+
+	rectHeight = 25;
+	margin = 5;
+
+	fbo.allocate(img.width, img.height + rectHeight + margin, GL_RGB32F_ARB);
 	cout << "FBO: "<< fbo.getWidth() << "x" <<fbo.getHeight();
 
 	color = ofColor(255, 255, 255, 255);
@@ -53,11 +57,11 @@ void testApp::draw(){
 		ofEnableAlphaBlending();  
 		
 		ofSetColor(255,255,255);
-		img.draw(fbo.getWidth() - img.width - 20, fbo.getHeight() - img.height - 20);
+		img.draw(0, rectHeight + margin);
 		
 		ofSetColor(color);
 		ofFill();
-		ofRect(fbo.getWidth() - img.width - 20, fbo.getHeight() - img.height - 50, img.getWidth()/3, 25);
+		ofRect(0, 0, img.getWidth()/3, rectHeight);
 		ofDisableAlphaBlending();
 		fbo.end();
 		//fbo.draw(ofGetWidth() - fbo.getWidth() - 20, ofGetHeight() - fbo.getHeight() - 20);
@@ -66,7 +70,7 @@ void testApp::draw(){
 		glEnable(GL_BLEND);  
 		glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);  
 
-		fbo.draw(0, 0);
+		fbo.draw(ofGetWidth() - fbo.getWidth() - 20, ofGetHeight() - fbo.getHeight() - 20);
 	}	
 }
 
@@ -98,7 +102,10 @@ void testApp::mousePressed(int x, int y, int button){
 		if(mouseX < ofGetWidth() - 20 && mouseX > ofGetWidth() - 20 - img.width && mouseY < ofGetHeight() - 20 && mouseY > ofGetHeight() - 20 - img.height){
 			fbo.begin();
 			GLubyte RGB[3];
-			glReadPixels(mouseX, mouseY, 1, 1, GL_RGB, GL_UNSIGNED_BYTE, &RGB[0]);
+			float x = fbo.getWidth() - (ofGetWidth() - mouseX - 20);
+			float y = fbo.getHeight() - (ofGetHeight() - mouseY - 20);		//<---------- REVER !!!!
+
+			glReadPixels(x, y, 1, 1, GL_RGB, GL_UNSIGNED_BYTE, &RGB[0]);
 			color = ofColor(RGB[0], RGB[1], RGB[2], 255);
 			cout << "Color: (" << RGB[0] << ", " << RGB[1] << ", " << RGB[2] << ")"  << endl;
 			fbo.end();
