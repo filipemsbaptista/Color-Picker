@@ -9,28 +9,16 @@ class testApp : public ofBaseApp{
 		void draw();
 		
 		void keyPressed(int key);
-		void keyReleased(int key);
-		void mouseMoved(int x, int y);
-		void mouseDragged(int x, int y, int button);
 		void mousePressed(int x, int y, int button);
 		void mouseReleased(int x, int y, int button);
-		void windowResized(int w, int h);
-		void dragEvent(ofDragInfo dragInfo);
-		void gotMessage(ofMessage msg);
 
 		ofFbo fbo;					//Buffer to draw color picker
 		float rectHeight;			//Height of the color shower
 		float margin;				//Margin between color shower and color picker
 
 		ofImage img;				//Image object for color picker
-		//float w;					//Color picker width 
-		//float h;					//Color picker height
-		//float cx, cy;				//Color picker center coordinates
-		//unsigned char *pixels;		//Color picker image pixels
-
+		
 		bool visible;				//Is color picker visible
-
 		
 		ofColor color;	
-
 };
