@@ -20,5 +20,7 @@ class testApp : public ofBaseApp{
 		
 		bool visible;				//Is color picker visible
 		
-		ofColor color;	
+		ofColor color1, color2;	
+
+		float colorPickerIndex;		//0 - Left picker, 1 - Right picker
 };
