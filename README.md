@@ -1,5 +1,7 @@
 # Color-Picker
 
+(openFrameworks v0.8.4)
+
 === DESCRIPTION ===
 
 This is a color picker I created to use in any OpenFrameworks project.
@@ -7,6 +9,7 @@ Here I provide an OF project to show how it works. The code is commented and is 
 You can adapt the code to any project using OF library.
 
 NOTE: Soon I'll try to post the .H and .CPP files for the color picker, so that you can easily port it to your project
+
 
 === HOW IT WORKS ===
 
