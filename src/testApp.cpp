@@ -57,20 +57,20 @@ void testApp::draw(){
 		ofSetColor(255,255,255);
 
 		fbo.draw(ofGetWidth() - fbo.getWidth() - 20, ofGetHeight() - fbo.getHeight() - 20);
-	}	
-	
-	//Draw color picker text
-	if(colorPickerIndex == 0)
-		ofSetColor(0, 0, 0);
-	else
-		ofSetColor(0, 0, 0, 128);
-	ofDrawBitmapString( "Periphery", ofGetWidth() - 20 - fbo.getWidth(), ofGetHeight() - 20 - fbo.getHeight() - 5 );
+
+		//Draw color picker text
+		if(colorPickerIndex == 0)
+			ofSetColor(0, 0, 0);
+		else
+			ofSetColor(0, 0, 0, 128);
+		ofDrawBitmapString( "Periphery", ofGetWidth() - 20 - fbo.getWidth(), ofGetHeight() - 20 - fbo.getHeight() - 5 );
 		
-	if(colorPickerIndex == 1)
-		ofSetColor(0, 0, 0);
-	else
-		ofSetColor(0, 0, 0, 128);
-	ofDrawBitmapString( "Center", ofGetWidth() - 20 - fbo.getWidth()/3, ofGetHeight() - 20 - fbo.getHeight() - 5 );
+		if(colorPickerIndex == 1)
+			ofSetColor(0, 0, 0);
+		else
+			ofSetColor(0, 0, 0, 128);
+		ofDrawBitmapString( "Center", ofGetWidth() - 20 - fbo.getWidth()/3, ofGetHeight() - 20 - fbo.getHeight() - 5 );
+	}	
 }
 
 //--------------------------------------------------------------
